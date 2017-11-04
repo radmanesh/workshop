@@ -1,0 +1,133 @@
+html{
+  background: black;
+}
+#sun {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px; 
+  margin-left: -150px;
+  background: url(https://upload.wikimedia.org/wikipedia/commons/9/99/Map_of_the_full_sun.jpg) 0 0 repeat;
+  border-radius: 50%;
+  background-size: 1200px;
+  animation: rotatesun 8s linear infinite;
+  -webkit-transition: transform 200ms linear;
+  -moz-transition: transform 200ms linear;
+  -o-transition: transform 200ms linear;
+  transition: transform 200ms linear;
+  transform-style: preserve-3d;
+  box-shadow: 0 0 128px red;
+  z-index: 10;
+  color: #000;
+}
+
+#sun:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+#sun:before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.2;
+}
+@keyframes rotatesun {
+  0% {background-position: 0 0;}
+  100% {background-position: 1200px 0;}
+}
+
+#earth-orbit{
+  position: absolute;
+  width: 1500px;
+  height: 1500px;
+  top: 50%;
+  left: 50%;
+  margin-top: -750px;
+  margin-left: -750px;
+  border: 1px dotted blue;
+  border-radius: 100%;
+  transform: rotateX(80deg);
+  transform-style: preserve-3d;
+  perspective: 50000;
+}
+
+
+#earth {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px; 
+  margin-left: -50px;
+  background: url(https://cdn.thinglink.me/api/image/494559552709066754/1240/10/scaletowidth) 0 0 repeat;
+  border-radius: 50%;
+  background-size: 215px;
+  animation: rotate 4s linear infinite , orbit 10s linear infinite;
+  transition: transform 200ms linear;
+  transform-style: preserve-3d;
+  box-shadow: inset 7px 0 23px 2px rgba(0, 0, 0, 1);
+  color: #000;
+}
+
+#earth:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: -30px 5px 30px 3px rgba(0,0,0,.9) inset;
+}
+
+#earth:before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.2;
+  background: radial-gradient(circle at 30px 30px, #fff, #000);
+}
+
+/* ---------- Animations ---------- */
+
+@keyframes rotate {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 215px 0;
+  }
+}
+
+@keyframes orbit {
+  0% {
+    -webkit-transform: rotate(0deg)  translateX(750px)  rotate(0deg) rotateX(-80deg) rotateZ(10deg);
+    -moz-transform: rotate(0deg)  translateX(750px)  rotate(0deg) rotateX(-80deg) rotateZ(10deg);
+    -o-transform: rotate(0deg)  translateX(750px)  rotate(0deg) rotateX(-80deg) rotateZ(10deg);
+    transform: rotate(0deg)  translateX(750px)  rotate(0deg) rotateX(-80deg) rotateZ(10deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg) translateX(750px) rotate(-360deg) rotateX(-80deg) rotateZ(10deg);
+    -moz-transform: rotate(360deg) translateX(750px) rotate(-360deg) rotateX(-80deg) rotateZ(10deg);
+    -o-transform: rotate(360deg) translateX(750px) rotate(-360deg) rotateX(-80deg) rotateZ(10deg);
+    transform: rotate(360deg) translateX(750px) rotate(-360deg) rotateX(-80deg) rotateZ(10deg);
+  }
+}
+
